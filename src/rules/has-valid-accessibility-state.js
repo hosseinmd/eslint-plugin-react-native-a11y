@@ -5,7 +5,7 @@
  */
 
 import type { JSXOpeningElement } from 'ast-types-flow';
-import { hasProp } from 'jsx-ast-utils';
+import { hasProp, getLiteralPropValue, getProp } from 'jsx-ast-utils';
 import { generateObjSchema } from '../util/schemas';
 import type { ESLintContext } from '../../flow/eslint';
 import getPropValue from 'jsx-ast-utils/lib/getPropValue';
@@ -18,10 +18,14 @@ const PROP_NAME = 'accessibilityState';
 
 const validKeys = ['disabled', 'selected', 'checked', 'busy', 'expanded'];
 
+const errorMessageRadio =
+  'Missing a11y props. Expected one of: accessibilityState ';
+
 module.exports = {
   meta: {
     docs: {},
     schema: [generateObjSchema()],
+    fixable: 'whitespace',
   },
 
   create: (context: ESLintContext) => ({
@@ -74,6 +78,73 @@ module.exports = {
               }
             }
           });
+        }
+      }
+
+      if (hasProp(node.attributes, 'accessibilityRole')) {
+        const role = getLiteralPropValue(
+          getProp(node.attributes, 'accessibilityRole')
+        );
+
+        const selectableRoles = ['checkbox', 'radio', 'switch'];
+
+        if (selectableRoles.includes(role)) {
+          if (hasProp(node.attributes, 'accessibilityState')) {
+            const state = getPropValue(
+              getProp(node.attributes, 'accessibilityState')
+            );
+            console.log({ state });
+
+            if (!state) {
+              context.report({
+                node,
+                message: errorMessageRadio,
+                fix: (fixer) => {
+                  return fixer.insertTextAfterRange(
+                    // $FlowFixMe
+                    node.name.range,
+                    ' accessibilityState={}'
+                  );
+                },
+              });
+            } else if (typeof state !== 'object') {
+              context.report({
+                node,
+                message: errorMessageRadio,
+                fix: (fixer) => {
+                  return fixer.insertTextAfterRange(
+                    // $FlowFixMe
+                    node.name.range,
+                    ' accessibilityState={}'
+                  );
+                },
+              });
+            } else if (Object.keys(state).length <= 0) {
+              context.report({
+                node,
+                message: errorMessageRadio,
+                fix: (fixer) => {
+                  return fixer.insertTextAfterRange(
+                    // $FlowFixMe
+                    node.name.range,
+                    ' accessibilityState={}'
+                  );
+                },
+              });
+            }
+          } else {
+            context.report({
+              node,
+              message: errorMessageRadio,
+              fix: (fixer) => {
+                return fixer.insertTextAfterRange(
+                  // $FlowFixMe
+                  node.name.range,
+                  ' accessibilityState={}'
+                );
+              },
+            });
+          }
         }
       }
     },

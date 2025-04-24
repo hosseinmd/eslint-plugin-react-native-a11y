@@ -21,10 +21,12 @@ const basicRules = {
   'react-native-a11y/has-valid-accessibility-traits': 'error',
   'react-native-a11y/has-valid-accessibility-value': 'error',
   'react-native-a11y/no-nested-touchables': 'error',
+  'react-native-a11y/should-touchables-have-label': 'error',
 };
 
 const iOSRules = {
   'react-native-a11y/has-valid-accessibility-ignores-invert-colors': 'error',
+  'react-native-a11y/has-important-for-accessibility': 'error',
 };
 
 const AndroidRules = {
@@ -36,6 +38,7 @@ module.exports = {
   rules: {
     'has-accessibility-hint': require('./rules/has-accessibility-hint'),
     'has-accessibility-props': require('./rules/has-accessibility-props'),
+    'has-important-for-accessibility': require('./rules/has-important-for-accessibility'),
     'has-valid-accessibility-actions': require('./rules/has-valid-accessibility-actions'),
     'has-valid-accessibility-component-type': require('./rules/has-valid-accessibility-component-type'),
     'has-valid-accessibility-descriptors': require('./rules/has-valid-accessibility-descriptors'),
@@ -48,6 +51,7 @@ module.exports = {
     'has-valid-accessibility-value': require('./rules/has-valid-accessibility-value'),
     'has-valid-important-for-accessibility': require('./rules/has-valid-important-for-accessibility'),
     'no-nested-touchables': require('./rules/no-nested-touchables'),
+    'should-touchables-have-label': require('./rules/should-touchables-have-label'),
   },
   configs: {
     basic: {
