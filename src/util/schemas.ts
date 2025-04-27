@@ -26,7 +26,7 @@ export const enumArraySchema = (enumeratedList = [], minItems = 0) =>
  * Factory function to generate an object schema
  * with specified properties object
  */
-export const generateObjSchema = (properties = {}, required) => ({
+export const generateObjSchema = (properties: any = {}, required?: any) => ({
   type: 'object',
   properties,
   required,
