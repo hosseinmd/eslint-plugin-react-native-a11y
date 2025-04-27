@@ -93,7 +93,6 @@ module.exports = {
             const state = getPropValue(
               getProp(node.attributes, 'accessibilityState')
             );
-            console.log({ state });
 
             if (!state) {
               context.report({

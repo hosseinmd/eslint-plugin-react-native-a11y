@@ -26,7 +26,7 @@ module.exports = {
   meta: {
     docs: {},
     schema: [schema],
-    fixable: 'code',
+    fixable: 'whitespace',
   },
 
   create: (context: ESLintContext) => ({
@@ -51,7 +51,7 @@ module.exports = {
                 node.name.range,
                 isTouchable(node, context)
                   ? ' accessibilityRole="button"'
-                  : ' accessibilityLabel="Text input field"'
+                  : ' accessibilityLabel={}'
               );
             },
           });

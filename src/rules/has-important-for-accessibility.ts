@@ -1,26 +1,14 @@
-/**
- * @fileoverview Describes the current state of a component to the user of an assistive technology.
- * @author JP Driver
- * @flow
- */
-import type { JSXOpeningElement } from 'ast-types-flow';
 import {
   hasProp,
   getLiteralPropValue,
   getProp,
   getPropValue,
 } from 'jsx-ast-utils';
-import { generateObjSchema } from '../util/schemas';
-import type { ESLintContext } from '../../flow/eslint';
 import { ESLintUtils } from '@typescript-eslint/utils';
 
 const createRule = ESLintUtils.RuleCreator(
   () => 'https://example.com/rule-docs'
 );
-
-// ----------------------------------------------------------------------------
-// Rule Definition
-// ----------------------------------------------------------------------------
 
 const errorMessageElementsHidden =
   'Missing a11y props. Expected to have accessibilityElementsHidden={true} for importantForAccessibility="no-hide-descendants"';
@@ -30,7 +18,7 @@ const errorMessageImportant =
 
 module.exports = createRule({
   name: 'has-important-for-accessibility',
-  defaultOptions: [] as never[],
+  defaultOptions: [],
   meta: {
     type: 'problem',
     docs: {
