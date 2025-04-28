@@ -3571,9 +3571,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-native-a11y@workspace:.":
+"eslint-plugin-react-native-accessibility@workspace:.":
   version: 0.0.0-use.local
-  resolution: "eslint-plugin-react-native-a11y@workspace:."
+  resolution: "eslint-plugin-react-native-accessibility@workspace:."
   dependencies:
     "@babel/cli": "npm:^7.15.7"
     "@babel/core": "npm:^7.15.8"
