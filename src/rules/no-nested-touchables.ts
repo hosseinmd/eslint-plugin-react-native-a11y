@@ -11,38 +11,79 @@ import { elementType, getProp, getPropValue } from 'jsx-ast-utils';
 import { generateObjSchema } from '../util/schemas';
 import isTouchable from '../util/isTouchable';
 import findChild from '../util/findChild';
+import { ESLintUtils, TSESTree } from '@typescript-eslint/utils';
 
 const errorMessage =
   'Elements with accessible={true} must not have any clickable elements inside';
 
 const schema = generateObjSchema();
 
-module.exports = {
+const createRule = ESLintUtils.RuleCreator(
+  () => 'https://example.com/rule-docs'
+);
+
+module.exports = createRule({
+  name: 'no-nested-touchables',
+  defaultOptions: [],
   meta: {
-    docs: {},
+    docs: {
+      description:
+        'Enforce if a view has accessible={true}, that there are no clickable elements inside',
+    },
+    messages: {
+      noNested: errorMessage,
+    },
     schema: [schema],
+    type: 'problem',
   },
 
-  create: (context) => ({
-    JSXOpeningElement: (node) => {
-      const { parent } = node;
+  create: (context) => {
+    const importedComponents: Set<string> = new Set();
 
-      const accessibleProp = getProp(node.attributes, 'accessible');
-      const accessible = getPropValue(accessibleProp);
-
-      if (accessible) {
-        const clickableChild = findChild(
-          parent,
-          (child) =>
-            isTouchable(child, context) || elementType(child) === 'Button'
-        );
-        if (clickableChild) {
-          context.report({
-            node,
-            message: errorMessage,
+    return {
+      ImportDeclaration(node: TSESTree.ImportDeclaration) {
+        if (node.source.value === 'react-native') {
+          node.specifiers.forEach((specifier) => {
+            if (specifier.type === 'ImportSpecifier') {
+              if (specifier.imported.type === 'Identifier') {
+                importedComponents.add(specifier.imported.name);
+              }
+            }
           });
         }
-      }
-    },
-  }),
-};
+      },
+
+      JSXOpeningElement: (node) => {
+        const { parent } = node;
+
+        const accessibleProp = getProp(node.attributes, 'accessible');
+        let accessible = getPropValue(accessibleProp);
+
+        if (accessible || isTouchable(node, context)) {
+          const clickableChild = findChild(parent, (child) => {
+            if (parent.openingElement === child) {
+              return false;
+            }
+
+            if (
+              isTouchable(child, context) ||
+              elementType(child) === 'Button'
+            ) {
+              const elType = elementType(child);
+
+              if (importedComponents.has(elType)) {
+                return true;
+              }
+            }
+          });
+          if (clickableChild) {
+            context.report({
+              node,
+              messageId: 'noNested',
+            });
+          }
+        }
+      },
+    };
+  },
+});
