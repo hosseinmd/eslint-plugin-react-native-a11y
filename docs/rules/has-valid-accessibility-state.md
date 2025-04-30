@@ -4,13 +4,13 @@ Describes the current state of a component to the user of an assistive technolog
 
 ## `accessibilityState` is an object. It contains the following fields:
 
-NAME|TYPE|REQUIRED
--|-|-
-`disabled`|boolean|No
-`selected`|boolean|No
-`checked`|boolean or 'mixed'|No
-`busy`|boolean|No
-`expanded`|boolean|No
+| NAME       | TYPE               | REQUIRED |
+| ---------- | ------------------ | -------- |
+| `disabled` | boolean            | No       |
+| `selected` | boolean            | No       |
+| `checked`  | boolean or 'mixed' | No       |
+| `busy`     | boolean            | No       |
+| `expanded` | boolean            | No       |
 
 ### References
 
@@ -40,4 +40,4 @@ This rule takes no arguments.
 <TouchableOpacity accessibilityState={{ foo: "yes" }} />
 ```
 
-*Note*: This plugin previously defined a rule with this name which is now `has-valid-accessibility-states` (see [#42](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y/pull/42)). React Native v0.61 introduced a new `accessibilityState` prop (see [commit](https://github.com/facebook/react-native/commit/099be9b35634851b178e990c47358c2129c0dd7d)) -- which is now covered by this rule.
+_Note_: This plugin previously defined a rule with this name which is now `has-valid-accessibility-states` (see [#42](https://github.com/FormidableLabs/eslint-plugin-react-native-a11y/pull/42)). React Native v0.61 introduced a new `accessibilityState` prop (see [commit](https://github.com/facebook/react-native/commit/099be9b35634851b178e990c47358c2129c0dd7d)) -- which is now covered by this rule.

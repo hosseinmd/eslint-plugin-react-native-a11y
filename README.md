@@ -1,9 +1,10 @@
-[![Eslint-plugin-react-native-a11y — Formidable, We build the modern web](https://oss.nearform.com/api/banner?text=eslint-plugin-native-a11y&bg=c99f46)](https://commerce.nearform.com/open-source/)
+THis is a Fork from eslint-plugin-react-native-a11y
 
+[![eslint-plugin-react-native-accessibility — Formidable, We build the modern web](https://oss.nearform.com/api/banner?text=eslint-plugin-native-a11y&bg=c99f46)](https://commerce.nearform.com/open-source/)
 
 [![Maintenance Status][maintenance-image]](#maintenance-status)
 
-Eslint-plugin-react-native-a11y is a collection of React Native specific ESLint rules for identifying accessibility issues. Building upon the foundation set down by eslint-plugin-jsx-a11y, eslint-plugin-react-native-a11y detects a few of the most commonly made accessibility issues found in react native apps. These rules make it easier for your apps to be navigable by users with screen readers.
+eslint-plugin-react-native-accessibility is a collection of React Native specific ESLint rules for identifying accessibility issues. Building upon the foundation set down by eslint-plugin-jsx-a11y, eslint-plugin-react-native-accessibility detects a few of the most commonly made accessibility issues found in react native apps. These rules make it easier for your apps to be navigable by users with screen readers.
 
 ## Setup
 
@@ -15,17 +16,17 @@ Before starting, check you already have ESLint as a `devDependency` of your proj
 
 ### Installation
 
-Next, install `eslint-plugin-react-native-a11y`:
+Next, install `eslint-plugin-react-native-accessibility`:
 
 ```sh
-npm install eslint-plugin-react-native-a11y --save-dev
+npm install eslint-plugin-react-native-accessibility --save-dev
 
 # or
 
-yarn add eslint-plugin-react-native-a11y --dev
+yarn add eslint-plugin-react-native-accessibility --dev
 ```
 
-**Note:** If you installed ESLint globally (using the `-g` flag in npm, or the `global` prefix in yarn) then you must also install `eslint-plugin-react-native-a11y` globally.
+**Note:** If you installed ESLint globally (using the `-g` flag in npm, or the `global` prefix in yarn) then you must also install `eslint-plugin-react-native-accessibility` globally.
 
 ## Configuration
 
@@ -83,7 +84,7 @@ For more information on configuring behaviour of an individual rule, please refe
 - [has-valid-accessibility-traits](docs/rules/has-valid-accessibility-traits.md): Enforce `accessibilityTraits` and `accessibilityComponentType` prop values must be valid
 - [has-valid-accessibility-value](docs/rules/has-valid-accessibility-value.md): Enforce `accessibilityValue` property value is valid
 - [no-nested-touchables](docs/rules/no-nested-touchables.md): Enforce if a view has `accessible={true}`, that there are no touchable elements inside
-- [has-valid-accessibility-descriptors](docs/rules/has-valid-accessibility-descriptors.md): Ensures that Touchable* components have appropriate props to communicate with assistive technologies
+- [has-valid-accessibility-descriptors](docs/rules/has-valid-accessibility-descriptors.md): Ensures that Touchable\* components have appropriate props to communicate with assistive technologies
 
 ### iOS
 
@@ -143,7 +144,7 @@ This project started as a fork of [eslint-plugin-jsx-a11y](https://github.com/ev
 
 ## License
 
-eslint-plugin-react-native-a11y is licensed under the [MIT License](LICENSE.md).
+eslint-plugin-react-native-accessibility is licensed under the [MIT License](LICENSE.md).
 
 ### Maintenance Status
 
