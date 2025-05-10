@@ -8,12 +8,14 @@
 // Rule Definition
 // ----------------------------------------------------------------------------
 
-import type { JSXOpeningElement } from 'ast-types-flow';
 import { elementType, hasAnyProp } from 'jsx-ast-utils';
-import type { ESLintContext } from '../../flow/eslint';
 import isTouchable from '../util/isTouchable';
 import { generateObjSchema } from '../util/schemas';
+import { ESLintUtils } from '@typescript-eslint/utils';
 
+const createRule = ESLintUtils.RuleCreator(
+  () => 'https://example.com/rule-docs'
+);
 const errorMessage =
   'Missing a11y props. Expected one of: accessibilityRole OR role OR BOTH accessibilityLabel + accessibilityHint OR BOTH accessibilityActions + onAccessibilityAction';
 
@@ -22,15 +24,25 @@ const schema = generateObjSchema();
 const hasSpreadProps = (attributes) =>
   attributes.some((attr) => attr.type === 'JSXSpreadAttribute');
 
-module.exports = {
+module.exports = createRule({
+  name: 'has-valid-accessibility-descriptors',
+  defaultOptions: [],
   meta: {
-    docs: {},
+    type: 'problem',
+    docs: {
+      description:
+        'Ensures that accessible components have appropriate props to communicate with assistive technologies',
+      url: 'https://example.com/rule-docs',
+    },
     schema: [schema],
     fixable: 'whitespace',
+    messages: {
+      missingA11yProps: errorMessage,
+    },
   },
 
-  create: (context: ESLintContext) => ({
-    JSXOpeningElement: (node: JSXOpeningElement) => {
+  create: (context) => ({
+    JSXOpeningElement: (node) => {
       if (isTouchable(node, context) || elementType(node) === 'TextInput') {
         if (
           !hasAnyProp(node.attributes, [
@@ -39,12 +51,14 @@ module.exports = {
             'accessibilityLabel',
             'accessibilityActions',
             'accessible',
+            'importantForAccessibility',
+            'accessibilityElementsHidden',
           ]) &&
           !hasSpreadProps(node.attributes)
         ) {
           context.report({
             node,
-            message: errorMessage,
+            messageId: 'missingA11yProps',
             fix: (fixer) => {
               return fixer.insertTextAfterRange(
                 // $FlowFixMe
@@ -59,4 +73,4 @@ module.exports = {
       }
     },
   }),
-};
+});
