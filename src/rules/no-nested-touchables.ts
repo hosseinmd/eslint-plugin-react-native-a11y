@@ -69,6 +69,29 @@ module.exports = createRule({
               isTouchable(child, context) ||
               elementType(child) === 'Button'
             ) {
+              const accessibleProp = getProp(child.attributes, 'accessible');
+              let accessible = getPropValue(accessibleProp);
+
+              if (accessible === false) {
+                return false;
+              }
+
+              const importantForAccessibilityProp = getProp(
+                child.attributes,
+                'importantForAccessibility'
+              );
+
+              let importantForAccessibility = getPropValue(
+                importantForAccessibilityProp
+              );
+
+              if (
+                importantForAccessibility === 'no-hide-descendants' ||
+                importantForAccessibility === 'no'
+              ) {
+                return false;
+              }
+
               const elType = elementType(child);
 
               if (importedComponents.has(elType)) {
