@@ -42,6 +42,7 @@ export default function findChild(
     }
   } else if (type === 'JSXExpressionContainer') {
     const child = node.expression;
+
     if (AST_NODE_TYPES.ConditionalExpression === child?.type) {
       for (const element of [child.consequent, child.alternate]) {
         if (element) {
@@ -55,6 +56,15 @@ export default function findChild(
             if (foundChild) {
               return foundChild;
             }
+          }
+        }
+      }
+    } else if (AST_NODE_TYPES.LogicalExpression === child?.type) {
+      for (const element of [child.left, child.right]) {
+        if (element) {
+          const foundChild = findChild(element, callback);
+          if (foundChild) {
+            return foundChild;
           }
         }
       }
