@@ -49,53 +49,50 @@ const AndroidRules = {
   'react-native-a11y/has-valid-important-for-accessibility': 'error',
 };
 
-export default {
-  rules: {
-    'has-accessibility-hint': hasAccessibilityHint,
-    'has-accessibility-props': hasAccessibilityProps,
-    'has-important-for-accessibility': hasImportantForAccessibility,
-    'has-valid-accessibility-actions': hasValidAccessibilityActions,
-    'has-valid-accessibility-component-type':
-      hasValidAccessibilityComponentType,
-    'has-valid-accessibility-descriptors': hasValidAccessibilityDescriptors,
-    'has-valid-accessibility-ignores-invert-colors':
-      hasValidAccessibilityIgnoresInvertColors,
-    'has-valid-accessibility-live-region': hasValidAccessibilityLiveRegion,
-    'has-valid-accessibility-role': hasValidAccessibilityRole,
-    'has-valid-accessibility-state': hasValidAccessibilityState,
-    'has-valid-accessibility-states': hasValidAccessibilityStates,
-    'has-valid-accessibility-traits': hasValidAccessibilityTraits,
-    'has-valid-accessibility-value': hasValidAccessibilityValue,
-    'has-valid-important-for-accessibility': hasValidImportantForAccessibility,
-    'no-nested-touchables': noNestedTouchables,
-    'should-touchables-have-label': shouldTouchablesHaveLabel,
+export const rules = {
+  'has-accessibility-hint': hasAccessibilityHint,
+  'has-accessibility-props': hasAccessibilityProps,
+  'has-important-for-accessibility': hasImportantForAccessibility,
+  'has-valid-accessibility-actions': hasValidAccessibilityActions,
+  'has-valid-accessibility-component-type': hasValidAccessibilityComponentType,
+  'has-valid-accessibility-descriptors': hasValidAccessibilityDescriptors,
+  'has-valid-accessibility-ignores-invert-colors':
+    hasValidAccessibilityIgnoresInvertColors,
+  'has-valid-accessibility-live-region': hasValidAccessibilityLiveRegion,
+  'has-valid-accessibility-role': hasValidAccessibilityRole,
+  'has-valid-accessibility-state': hasValidAccessibilityState,
+  'has-valid-accessibility-states': hasValidAccessibilityStates,
+  'has-valid-accessibility-traits': hasValidAccessibilityTraits,
+  'has-valid-accessibility-value': hasValidAccessibilityValue,
+  'has-valid-important-for-accessibility': hasValidImportantForAccessibility,
+  'no-nested-touchables': noNestedTouchables,
+  'should-touchables-have-label': shouldTouchablesHaveLabel,
+};
+export const configs = {
+  basic: {
+    ...defaultConfig,
+    rules: basicRules,
   },
-  configs: {
-    basic: {
-      ...defaultConfig,
-      rules: basicRules,
+  ios: {
+    ...defaultConfig,
+    rules: {
+      ...basicRules,
+      ...iOSRules,
     },
-    ios: {
-      ...defaultConfig,
-      rules: {
-        ...basicRules,
-        ...iOSRules,
-      },
+  },
+  android: {
+    ...defaultConfig,
+    rules: {
+      ...basicRules,
+      ...AndroidRules,
     },
-    android: {
-      ...defaultConfig,
-      rules: {
-        ...basicRules,
-        ...AndroidRules,
-      },
-    },
-    all: {
-      ...defaultConfig,
-      rules: {
-        ...basicRules,
-        ...iOSRules,
-        ...AndroidRules,
-      },
+  },
+  all: {
+    ...defaultConfig,
+    rules: {
+      ...basicRules,
+      ...iOSRules,
+      ...AndroidRules,
     },
   },
 };
