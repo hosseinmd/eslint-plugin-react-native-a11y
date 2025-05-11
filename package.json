@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-react-native-accessibility",
-  "version": "3.6.3",
+  "version": "3.6.4",
   "description": "React Native specific accessibility linting rules.",
   "keywords": [
     "eslint",
@@ -22,7 +22,7 @@
     "flow": "flow",
     "lint:fix": "npm run lint -- --fix",
     "lint": "eslint src/**/*.ts __tests__ scripts",
-    "prepublishOnly": "yarn build",
+    "prepublishOnly": "yarn lint && yarn build",
     "pretest": "npm run lint:fix && npm run flow",
     "test": "npm run jest",
     "test:ci": "npm run jest -- --ci --runInBand",
