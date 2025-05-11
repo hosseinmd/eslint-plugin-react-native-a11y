@@ -1,4 +1,5 @@
 #!/usr/bin/env node --harmony
+/* eslint-disable @typescript-eslint/no-require-imports */
 const path = require('path');
 const fs = require('fs');
 const { exec } = require('child_process');
@@ -55,7 +56,7 @@ exec(
   ].join(' '),
   (error) => {
     if (error) {
-      console.error(`exec error: ${error}`); // eslint-disable-line no-console
+      console.error(`exec error: ${error}`);
     }
   }
 );

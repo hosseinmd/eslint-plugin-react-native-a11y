@@ -23,7 +23,7 @@ const standardActions = [
   'longpress', // Android only
 ];
 
-module.exports = {
+export default {
   meta: {
     docs: {},
     schema: [generateObjSchema()],

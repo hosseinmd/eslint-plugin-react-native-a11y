@@ -21,7 +21,7 @@ const validKeys = ['disabled', 'selected', 'checked', 'busy', 'expanded'];
 const errorMessageRadio =
   'Missing a11y props. Expected one of: accessibilityState ';
 
-module.exports = {
+export default {
   meta: {
     docs: {},
     schema: [generateObjSchema()],

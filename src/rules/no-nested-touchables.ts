@@ -22,7 +22,7 @@ const createRule = ESLintUtils.RuleCreator(
   () => 'https://example.com/rule-docs'
 );
 
-module.exports = createRule({
+export default createRule({
   name: 'no-nested-touchables',
   defaultOptions: [],
   meta: {

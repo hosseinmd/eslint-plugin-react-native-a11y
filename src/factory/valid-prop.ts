@@ -18,8 +18,8 @@ const createValidPropRule = (
   propName: string,
   validValues: Array<string>,
   errorMessage: string,
-  meta?: Object,
-  create?: Object
+  meta?: object,
+  create?: object
 ) => ({
   meta: {
     docs: {},

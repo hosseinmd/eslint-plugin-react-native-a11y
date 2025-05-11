@@ -76,7 +76,7 @@ const verifyReactNativeImage = (text: string): VerifyRNImageRes => {
   return res;
 };
 
-module.exports = {
+export default {
   meta: {
     docs: {},
     schema: [schema],

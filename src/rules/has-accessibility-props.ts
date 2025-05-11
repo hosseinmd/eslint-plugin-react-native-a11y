@@ -26,7 +26,7 @@ function errorMessage(touchable) {
 
 const deprecatedProps = ['accessibilityTraits', 'accessibilityComponentType'];
 
-module.exports = {
+export default {
   meta: {
     docs: {},
     schema: [

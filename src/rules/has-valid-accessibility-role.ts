@@ -48,7 +48,7 @@ const validValues = [
   'toolbar',
 ];
 
-module.exports = createValidPropRule(
+export default createValidPropRule(
   'accessibilityRole',
   validValues,
   errorMessage

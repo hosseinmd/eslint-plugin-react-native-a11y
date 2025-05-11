@@ -15,7 +15,7 @@ import { generateObjSchema } from '../util/schemas';
 
 const schema = generateObjSchema();
 
-module.exports = {
+export default {
   meta: {
     docs: {},
     schema: [schema],

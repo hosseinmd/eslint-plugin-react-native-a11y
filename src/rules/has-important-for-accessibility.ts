@@ -16,7 +16,7 @@ const errorMessageElementsHidden =
 const errorMessageImportant =
   'Missing a11y props. Expected to have importantForAccessibility="no-hide-descendants" for accessibilityElementsHidden={true}';
 
-module.exports = createRule({
+export default createRule({
   name: 'has-important-for-accessibility',
   defaultOptions: [],
   meta: {

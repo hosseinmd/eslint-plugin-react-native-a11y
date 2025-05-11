@@ -27,7 +27,7 @@ const errorMessage =
 
 const schema = generateObjSchema();
 
-module.exports = createRule({
+export default createRule({
   name: 'should-touchables-have-label',
   defaultOptions: [],
   meta: {

@@ -24,7 +24,7 @@ const schema = generateObjSchema();
 const hasSpreadProps = (attributes) =>
   attributes.some((attr) => attr.type === 'JSXSpreadAttribute');
 
-module.exports = createRule({
+export default createRule({
   name: 'has-valid-accessibility-descriptors',
   defaultOptions: [],
   meta: {

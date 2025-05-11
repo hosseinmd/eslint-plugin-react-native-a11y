@@ -1,4 +1,19 @@
-/* eslint-disable global-require */
+import hasAccessibilityHint from './rules/has-accessibility-hint';
+import hasAccessibilityProps from './rules/has-accessibility-props';
+import hasImportantForAccessibility from './rules/has-important-for-accessibility';
+import hasValidAccessibilityActions from './rules/has-valid-accessibility-actions';
+import hasValidAccessibilityComponentType from './rules/has-valid-accessibility-component-type';
+import hasValidAccessibilityDescriptors from './rules/has-valid-accessibility-descriptors';
+import hasValidAccessibilityIgnoresInvertColors from './rules/has-valid-accessibility-ignores-invert-colors';
+import hasValidAccessibilityLiveRegion from './rules/has-valid-accessibility-live-region';
+import hasValidAccessibilityRole from './rules/has-valid-accessibility-role';
+import hasValidAccessibilityState from './rules/has-valid-accessibility-state';
+import hasValidAccessibilityStates from './rules/has-valid-accessibility-states';
+import hasValidAccessibilityTraits from './rules/has-valid-accessibility-traits';
+import hasValidAccessibilityValue from './rules/has-valid-accessibility-value';
+import hasValidImportantForAccessibility from './rules/has-valid-important-for-accessibility';
+import noNestedTouchables from './rules/no-nested-touchables';
+import shouldTouchablesHaveLabel from './rules/should-touchables-have-label';
 
 const defaultConfig = {
   parserOptions: {
@@ -34,24 +49,26 @@ const AndroidRules = {
   'react-native-a11y/has-valid-important-for-accessibility': 'error',
 };
 
-module.exports = {
+export default {
   rules: {
-    'has-accessibility-hint': require('./rules/has-accessibility-hint'),
-    'has-accessibility-props': require('./rules/has-accessibility-props'),
-    'has-important-for-accessibility': require('./rules/has-important-for-accessibility'),
-    'has-valid-accessibility-actions': require('./rules/has-valid-accessibility-actions'),
-    'has-valid-accessibility-component-type': require('./rules/has-valid-accessibility-component-type'),
-    'has-valid-accessibility-descriptors': require('./rules/has-valid-accessibility-descriptors'),
-    'has-valid-accessibility-ignores-invert-colors': require('./rules/has-valid-accessibility-ignores-invert-colors'),
-    'has-valid-accessibility-live-region': require('./rules/has-valid-accessibility-live-region'),
-    'has-valid-accessibility-role': require('./rules/has-valid-accessibility-role'),
-    'has-valid-accessibility-state': require('./rules/has-valid-accessibility-state'),
-    'has-valid-accessibility-states': require('./rules/has-valid-accessibility-states'),
-    'has-valid-accessibility-traits': require('./rules/has-valid-accessibility-traits'),
-    'has-valid-accessibility-value': require('./rules/has-valid-accessibility-value'),
-    'has-valid-important-for-accessibility': require('./rules/has-valid-important-for-accessibility'),
-    'no-nested-touchables': require('./rules/no-nested-touchables'),
-    'should-touchables-have-label': require('./rules/should-touchables-have-label'),
+    'has-accessibility-hint': hasAccessibilityHint,
+    'has-accessibility-props': hasAccessibilityProps,
+    'has-important-for-accessibility': hasImportantForAccessibility,
+    'has-valid-accessibility-actions': hasValidAccessibilityActions,
+    'has-valid-accessibility-component-type':
+      hasValidAccessibilityComponentType,
+    'has-valid-accessibility-descriptors': hasValidAccessibilityDescriptors,
+    'has-valid-accessibility-ignores-invert-colors':
+      hasValidAccessibilityIgnoresInvertColors,
+    'has-valid-accessibility-live-region': hasValidAccessibilityLiveRegion,
+    'has-valid-accessibility-role': hasValidAccessibilityRole,
+    'has-valid-accessibility-state': hasValidAccessibilityState,
+    'has-valid-accessibility-states': hasValidAccessibilityStates,
+    'has-valid-accessibility-traits': hasValidAccessibilityTraits,
+    'has-valid-accessibility-value': hasValidAccessibilityValue,
+    'has-valid-important-for-accessibility': hasValidImportantForAccessibility,
+    'no-nested-touchables': noNestedTouchables,
+    'should-touchables-have-label': shouldTouchablesHaveLabel,
   },
   configs: {
     basic: {

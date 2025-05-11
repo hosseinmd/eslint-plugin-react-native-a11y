@@ -14,7 +14,7 @@ const errorMessage = 'importantForAccessibility must be one of defined values';
 
 const validValues = ['auto', 'yes', 'no', 'no-hide-descendants'];
 
-module.exports = createValidPropRule(
+export default createValidPropRule(
   'importantForAccessibility',
   validValues,
   errorMessage

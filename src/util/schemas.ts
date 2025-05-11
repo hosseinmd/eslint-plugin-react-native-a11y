@@ -30,4 +30,4 @@ export const generateObjSchema = (properties = {}) =>
   ({
     type: 'object',
     properties,
-  } as const);
+  }) as const;

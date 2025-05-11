@@ -15,7 +15,7 @@ import type { ESLintContext } from '../../flow/eslint';
 
 const PROP_NAME = 'accessibilityValue';
 
-module.exports = {
+export default {
   meta: {
     docs: {},
     schema: [generateObjSchema()],
