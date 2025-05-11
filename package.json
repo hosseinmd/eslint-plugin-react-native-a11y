@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-react-native-accessibility",
-  "version": "3.6.4",
+  "version": "3.6.5",
   "description": "React Native specific accessibility linting rules.",
   "keywords": [
     "eslint",
