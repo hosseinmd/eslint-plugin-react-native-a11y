@@ -33,8 +33,8 @@ const checkParent = ({ openingElement, parent }) => {
 };
 
 type VerifyRNImageRes = {
-  enableLinting: boolean,
-  elementsToCheck: string[],
+  enableLinting: boolean;
+  elementsToCheck: string[];
 };
 
 /**

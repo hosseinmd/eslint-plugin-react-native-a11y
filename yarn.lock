@@ -3544,18 +3544,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-flowtype@npm:^7.0.0":
-  version: 7.0.0
-  resolution: "eslint-plugin-flowtype@npm:7.0.0"
-  dependencies:
-    lodash: "npm:^4.17.21"
-    string-natural-compare: "npm:^3.0.1"
-  peerDependencies:
-    eslint: ^7.32.0
-  checksum: 10c0/fb956e32598ec7156c593918f9e230b4e7e7a41dd172253e41a74ee2641944870ee0d47dd02ffad00f842855bc35973b4aaa56155e9f7c04e24353f7044c082a
-  languageName: node
-  linkType: hard
-
 "eslint-plugin-prettier@npm:^4.0.0":
   version: 4.0.0
   resolution: "eslint-plugin-prettier@npm:4.0.0"
@@ -3588,7 +3576,6 @@ __metadata:
     babel-jest: "npm:^27.3.1"
     eslint: "npm:^7.32.0"
     eslint-config-prettier: "npm:^8.3.0"
-    eslint-plugin-flowtype: "npm:^7.0.0"
     eslint-plugin-prettier: "npm:^4.0.0"
     expect: "npm:^27.3.1"
     flow-bin: "npm:^0.137.0"
@@ -5825,7 +5812,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.21, lodash@npm:^4.7.0":
+"lodash@npm:^4.7.0":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: 10c0/d8cbea072bb08655bb4c989da418994b073a608dffa608b09ac04b43a791b12aeae7cd7ad919aa4c925f33b48490b5cfe6c1f71d827956071dae2e7bb3a6b74c
@@ -7422,13 +7409,6 @@ __metadata:
     char-regex: "npm:^1.0.2"
     strip-ansi: "npm:^6.0.0"
   checksum: 10c0/1cd77409c3d7db7bc59406f6bcc9ef0783671dcbabb23597a1177c166906ef2ee7c8290f78cae73a8aec858768f189d2cb417797df5e15ec4eb5e16b3346340c
-  languageName: node
-  linkType: hard
-
-"string-natural-compare@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "string-natural-compare@npm:3.0.1"
-  checksum: 10c0/85a6a9195736be500af5d817c7ea36b7e1ac278af079a807f70f79a56602359ee6743ca409af6291b94557de550ff60d1ec31b3c4fc8e7a08d0e12cdab57c149
   languageName: node
   linkType: hard
 
