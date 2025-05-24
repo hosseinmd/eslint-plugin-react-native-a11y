@@ -14,6 +14,7 @@ import hasValidAccessibilityValue from './rules/has-valid-accessibility-value';
 import hasValidImportantForAccessibility from './rules/has-valid-important-for-accessibility';
 import noNestedTouchables from './rules/no-nested-touchables';
 import shouldTouchablesHaveLabel from './rules/should-touchables-have-label';
+import shouldUseAccessibilityLabelInsteadTestid from './rules/should-use-accessibility-label-instead-testid';
 
 const defaultConfig = {
   parserOptions: {
@@ -35,6 +36,7 @@ const basicRules = {
   'react-native-a11y/has-valid-accessibility-states': 'error',
   'react-native-a11y/has-valid-accessibility-traits': 'error',
   'react-native-a11y/has-valid-accessibility-value': 'error',
+  'react-native-a11y/should-use-accessibility-label-instead-testid': 'error',
   'react-native-a11y/no-nested-touchables': 'error',
   'react-native-a11y/should-touchables-have-label': 'error',
 };
@@ -67,6 +69,8 @@ export const rules = {
   'has-valid-important-for-accessibility': hasValidImportantForAccessibility,
   'no-nested-touchables': noNestedTouchables,
   'should-touchables-have-label': shouldTouchablesHaveLabel,
+  'should-use-accessibility-label-instead-testid':
+    shouldUseAccessibilityLabelInsteadTestid,
 };
 export const configs = {
   basic: {
