@@ -65,7 +65,7 @@ export default createRule({
                 node.name.range,
                 isTouchable(node, context)
                   ? ' accessibilityRole="button"'
-                  : ' accessibilityLabel={}'
+                  : ' accessibilityLabel="Text input field"'
               );
             },
           });

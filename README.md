@@ -85,6 +85,7 @@ For more information on configuring behaviour of an individual rule, please refe
 - [has-valid-accessibility-value](docs/rules/has-valid-accessibility-value.md): Enforce `accessibilityValue` property value is valid
 - [no-nested-touchables](docs/rules/no-nested-touchables.md): Enforce if a view has `accessible={true}`, that there are no touchable elements inside
 - [has-valid-accessibility-descriptors](docs/rules/has-valid-accessibility-descriptors.md): Ensures that Touchable\* components have appropriate props to communicate with assistive technologies
+- [should-use-native-properties](docs/rules/should-use-native-properties.md): Enforce use of native React Native accessibility properties instead of ARIA properties
 
 ### iOS
 

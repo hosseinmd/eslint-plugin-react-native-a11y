@@ -4,10 +4,11 @@
       "@babel/preset-env",
       {
         "targets": {
-          "node": "4"
+          "node": "18"
         }
       }
-    ]
+    ],
+    "@babel/preset-typescript"
   ],
   "plugins": ["@babel/transform-flow-strip-types"]
 }

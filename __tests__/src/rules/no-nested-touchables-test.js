@@ -16,7 +16,7 @@ import rule from '../../../src/rules/no-nested-touchables';
 // Tests
 // -----------------------------------------------------------------------------
 
-const ruleTester = new RuleTester();
+const ruleTester = new RuleTester({});
 
 const expectedError = {
   message:
@@ -27,16 +27,20 @@ const expectedError = {
 ruleTester.run('no-nested-touchables', rule, {
   valid: [
     {
-      code: `<TouchableOpacity
-      accessibilityTraits="button"
+      code: `
+      import { TouchableOpacity, View, Text } from 'react-native';
+      const a = <TouchableOpacity
+      accessibilityRole="button"
       accessibilityComponentType="button"
       accessibilityLabel="Tap Me!"
       accessible={true}
     />`,
     },
     {
-      code: `<TouchableOpacity
-      accessibilityTraits="button"
+      code: `
+      import { TouchableOpacity, View, Text } from 'react-native';
+      const a = <TouchableOpacity
+      accessibilityRole="button"
       accessibilityComponentType="button"
       accessibilityLabel="Tap Me!"
       accessible={true}
@@ -45,27 +49,33 @@ ruleTester.run('no-nested-touchables', rule, {
   ].map(parserOptionsMapper),
   invalid: [
     {
-      code: `<TouchableOpacity
+      code: `
+      import { TouchableOpacity, View, Text } from 'react-native';
+      const a = <TouchableOpacity
                 accessibilityTraits="button"
                 accessibilityComponentType="button"
                 accessibilityLabel="Tap Me!"
                 accessible={true}
               >
-                <Button />
+                <TouchableOpacity />
               </TouchableOpacity>`,
       errors: [expectedError],
     },
     {
-      code: `<TouchableOpacity
+      code: `
+      import { TouchableOpacity, View, Text } from 'react-native';
+      const a = <TouchableOpacity
   accessibilityTraits="button"
   accessibilityComponentType="button"
   accessibilityLabel="Tap Me!"
   accessible={true}
-><View><Text><Button>button</Button></Text></View></TouchableOpacity>`,
+><View><Text><TouchableOpacity>button</TouchableOpacity></Text></View></TouchableOpacity>`,
       errors: [expectedError],
     },
     {
-      code: `<TouchableOpacity
+      code: `
+      import { TouchableOpacity, View, Text } from 'react-native';
+      const a = <TouchableOpacity
   accessibilityTraits="button"
   accessibilityComponentType="button"
   accessibilityLabel="Tap Me!"
@@ -74,7 +84,9 @@ ruleTester.run('no-nested-touchables', rule, {
       errors: [expectedError],
     },
     {
-      code: `<TouchableOpacity
+      code: `
+      import { TouchableOpacity, View, Text, Pressable } from 'react-native';
+      const a = <TouchableOpacity
   accessibilityTraits="button"
   accessibilityComponentType="button"
   accessibilityLabel="Tap Me!"

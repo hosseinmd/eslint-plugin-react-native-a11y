@@ -4,7 +4,9 @@
     "rootDir": "src",
     "skipLibCheck": true,
     "esModuleInterop": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "target": "es2018"
   },
   "include": ["src/**/*.ts"],
   "exclude": ["**/node_modules/**", "lib"]
